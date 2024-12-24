@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankit Kesar - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     
@@ -336,14 +338,184 @@
     .visitor-count i {
       font-size: 1.1rem;
     }
+
+    .skill-bar {
+      background: #233554;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .skill-level {
+      background: var(--accent-color);
+      padding: 0.5rem;
+      color: #fff;
+      text-align: center;
+      transition: width 1s ease;
+    }
+
+    /* Add these styles */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Update particle colors and behavior */
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 30,  // Further reduced for better performance
+          density: {
+            enable: true,
+            value_area: 1500  // Increased area to spread particles more
+          }
+        },
+        color: {
+          value: '#64ffda'  // Single color for subtlety
+        },
+        shape: {
+          type: 'circle',
+        },
+        opacity: {
+          value: 0.2,  // Reduced opacity
+          random: true,
+          anim: {
+            enable: true,
+            speed: 0.5,  // Slower animation
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 1.5,  // Smaller particles
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,  // Slower size animation
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#64ffda',
+          opacity: 0.1,  // More subtle lines
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,  // Even slower movement
+          direction: 'none',
+          random: true,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: 'window',
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'bubble'  // Changed to bubble for subtler interaction
+          },
+          onclick: {
+            enable: false,  // Disabled click interaction
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          bubble: {
+            distance: 200,
+            size: 3,
+            duration: 2,
+            opacity: 0.3,
+            speed: 3
+          },
+          push: {
+            particles_nb: 3
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    .skill-bars {
+      max-width: 600px;
+      margin: 2rem 0;
+    }
+
+    .skill-bar {
+      background: #233554;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .skill-name {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      z-index: 1;
+    }
+
+    .skill-level {
+      background: #64ffda;
+      padding: 0.5rem;
+      color: #0a192f;
+      text-align: right;
+      padding-right: 1rem;
+      font-weight: 500;
+      transition: width 1s ease;
+      animation: slideIn 1.5s ease forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        width: 0;
+      }
+    }
+
+    .typed-cursor {
+      color: #64ffda;
+      font-size: 3rem;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
   <div class="container">
     <header>
       <p class="name">Hi, my name is</p>
-      <h1 class="title">Ankit Kesar.</h1>
-      <h2 class="subtitle">I build things for the web.</h2>
+      <h1 class="title">Ankit Kesar</h1>
+      <h2 class="subtitle">I <span id="typed-text"></span></h2>
       <p class="description">
         I'm a software engineer specializing in building exceptional digital experiences. 
         Currently, I'm focused on building AI-powered solutions at BMC Software.
@@ -360,17 +532,6 @@
         <div class="skill-item">Azure OpenAI</div>
         <div class="skill-item">Google Vertex AI</div>
         <div class="skill-item">LLM</div>
-        <div class="skill-item">MachineLearning</div>
-        <div class="skill-item">DeepLearning</div>
-        <div class="skill-item">NLP</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">Java</div>
-        <div class="skill-item">SpringBoot</div>
-        <div class="skill-item">NodeJS</div>
-        <div class="skill-item">ExpressJS</div>
-        <div class="skill-item">MySQL</div>
-        <div class="skill-item">ElasticSearch</div>
-        <div class="skill-item">MongoDB</div>
         <div class="skill-item">PostGres</div>
         <div class="skill-item">Opensearch</div>
         <div class="skill-item">JavaScript</div>
@@ -410,7 +571,7 @@
 
       <div class="experience-card">
         <h3 class="role">Software Engineering Intern</h3>
-        <p class="company-date">Samsung India | 01/2020 – 08/2020 | Bangalore, India</p>
+        <p class="company-date">Samsung India | 01/2020  08/2020 | Bangalore, India</p>
         <ul>
           <li>Developed explainable ML models using GBMs and RNNs with SHAP and LIME integration to reduce unexpected component failures.</li>
           <li>Implemented a real-time failure prediction monitoring dashboard with adjustable sensor thresholds and dynamic risk visualization.</li>
@@ -534,6 +695,22 @@
     
     window.location.href = mailtoLink;
   }
+
+  new Typed('#typed-text', {
+    strings: [
+      'build things for the web',
+      'create AI solutions',
+      'love to code',
+      'solve complex problems',
+      'develop innovative systems'
+    ],
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 1000,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|'
+  });
   </script>
 </body>
 </html>
