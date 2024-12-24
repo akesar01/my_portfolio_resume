@@ -316,6 +316,26 @@
     .project-link i {
       font-size: 1.1rem;
     }
+
+    .visitor-count {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(17, 34, 64, 0.9);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #64ffda;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+    }
+
+    .visitor-count i {
+      font-size: 1.1rem;
+    }
   </style>
 </head>
 <body>
@@ -471,6 +491,12 @@
   <div class="social-links">
     <a href="https://github.com/akesar01" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/ankitkesar/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <div class="visitor-count">
+    <i class="fas fa-eye"></i>
+    <img src="https://hits.sh/github.com/akesar01/my_portfolio_resume.svg?view=today-total" alt="Visitors Count" />
+    visitors
   </div>
 
   <script>
